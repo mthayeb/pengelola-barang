@@ -1,16 +1,17 @@
 function cariBarang(idInput, idUl) {
-    var input, filter, ul, li, a, i, txtValue;
+  console.log("jalan")
+    var input, filter, ul, li, ahref, i, txtValue;
     input = document.getElementById(idInput);
     filter = input.value.toUpperCase();
     ul = document.getElementById(idUl);
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
+    ahref = ul.getElementsByTagName("a");
+    for (i = 0; i < ahref.length; i++) {
+        // a = ;
+        txtValue = ahref[i].textContent || ahref[i].innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
+            ahref[i].style.display = "";
         } else {
-            li[i].style.display = "none";
+            ahref[i].style.display = "none";
         }
     }
 }
