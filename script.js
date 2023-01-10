@@ -9,8 +9,8 @@ function cariBarang(idInput, idUl) {
     txtValue = ahref[i].textContent || ahref[i].innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       ahref[i].style.display = "block";
-      console.log("muncul");
-    } else if (input.value == "") {
+    } 
+    if (input.value == "") {
       ahref[i].style.display = "none";
     }
   }
