@@ -26,3 +26,15 @@ function cariBarang(idInput, idUl) {
     }
   })
 }
+
+function ambilDb(){
+  fetch("https://script.google.com/macros/s/AKfycbyRZXiLsIsTh0LzFk9z95tbHGArb3Ht03rLW_GgIv3F1kQmOlxkLjvNVPjcb3hjgh3NAg/exec", {
+    method : "post"
+  })
+  .then(res => {
+    return res.text()
+  })
+  .then(resp => {
+    console.log(resp)
+  })
+}
