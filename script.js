@@ -23,7 +23,7 @@ function cariBarang(idInput, idUl) {
   ahref.forEach((e, n) => {
     e.onclick = (d) => {
       input.value = ""
-      ($(d.target).text()[0]).match("#")
+      // ($(d.target).text()[0]).match("#")
       $("#kode_barang").val()
       $("#nama_barang").val($(d.target).text())
       for (i = 0; i < ahref.length; i++) {
@@ -52,7 +52,7 @@ function ambilDb(perintah) {
         //console.log(dataBarang[i][1]); //nama barang
 
         $("#myUL").append(
-          `<a class="list-group-item list-group-item-action" href="#">${dataBarang[i][1]} (#${dataBarang[i][0]})</a>`
+          `<a class="list-group-item list-group-item-action" href="#">${dataBarang[i][1]} <span class="d-none">${dataBarang[i][0]}</span></a>`
         );
       }
     })
