@@ -22,7 +22,7 @@ function cariBarang(idInput, idUl) {
   
   ahref.forEach((e,n)=>{
     e.onclick = (d)=>{
-      console.log(d.target)
+      console.log(d.target.textContent)
     }
   })
 }
