@@ -22,12 +22,13 @@ function cariBarang(idInput, idUl) {
 
   ahref.forEach((e, n) => {
     e.onclick = (d) => {
+      
       console.log(d.target.textContent);
     };
   });
 }
 
-function ambilDb(pertintah) {
+function ambilDb(perintah) {
   fetch(
     "https://script.google.com/macros/s/AKfycbyRZXiLsIsTh0LzFk9z95tbHGArb3Ht03rLW_GgIv3F1kQmOlxkLjvNVPjcb3hjgh3NAg/exec",
     {
@@ -53,8 +54,8 @@ function ambilDb(pertintah) {
       console.log(err);
     });
 }
-ambilDb("")
+ambilDb("ambil db")
 
 function simpanMasuk(){
-  ambilDb()
+  ambilDb("simpan masuk")
 }
