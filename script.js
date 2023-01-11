@@ -29,12 +29,18 @@ function cariBarang(idInput, idUl) {
 
 function ambilDb(){
   fetch("https://script.google.com/macros/s/AKfycbyRZXiLsIsTh0LzFk9z95tbHGArb3Ht03rLW_GgIv3F1kQmOlxkLjvNVPjcb3hjgh3NAg/exec", {
-    method : "post"
+    method : "post",
+    body: JSON.stringify({"perintah":"ambil db"})
   })
   .then(res => {
-    return res.text()
+    return res.json()
   })
   .then(resp => {
     console.log(resp)
+    console.log(resp[2][0]) //kode barang
+    console.log(resp[2][1]) //nama barang
+  })
+  .catch(err => {
+    console.log(err)
   })
 }
