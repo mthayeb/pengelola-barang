@@ -22,8 +22,14 @@ function cariBarang(idInput, idUl) {
 
   ahref.forEach((e, n) => {
     e.onclick = (d) => {
-      
-      console.log(d.target.textContent);
+      input.value = ""
+      ($(d.target).text()).match()
+      $("#kode_barang").val()
+      $("#nama_barang").val($(d.target).text())
+      for (i = 0; i < ahref.length; i++) {
+        ahref[i].style.display = "none";
+      }
+      // console.log(d.target.textContent);
     };
   });
 }
@@ -42,11 +48,11 @@ function ambilDb(perintah) {
     .then((dataBarang) => {
       // console.log(dataBarang)
       for (let i = 2; i < dataBarang.length; i++) {
-        console.log(dataBarang[i][0]); //kode barang
-        console.log(dataBarang[i][1]); //nama barang
+        //console.log(dataBarang[i][0]); //kode barang
+        //console.log(dataBarang[i][1]); //nama barang
 
         $("#myUL").append(
-          `<a class="list-group-item list-group-item-action" href="#">${dataBarang[i][1]}</a>`
+          `<a class="list-group-item list-group-item-action" href="#">${dataBarang[i][1]} (#${dataBarang[i][0]})</a>`
         );
       }
     })
