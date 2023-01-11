@@ -27,12 +27,12 @@ function cariBarang(idInput, idUl) {
   });
 }
 
-function ambilDb() {
+function ambilDb(pertintah) {
   fetch(
     "https://script.google.com/macros/s/AKfycbyRZXiLsIsTh0LzFk9z95tbHGArb3Ht03rLW_GgIv3F1kQmOlxkLjvNVPjcb3hjgh3NAg/exec",
     {
       method: "post",
-      body: JSON.stringify({ perintah: "ambil db" }),
+      body: JSON.stringify({ perintah: perintah }),
     }
   )
     .then((res) => {
@@ -40,13 +40,21 @@ function ambilDb() {
     })
     .then((dataBarang) => {
       // console.log(dataBarang)
-
       for (let i = 2; i < dataBarang.length; i++) {
         console.log(dataBarang[i][0]); //kode barang
         console.log(dataBarang[i][1]); //nama barang
+
+        $("#myUL").append(
+          `<a class="list-group-item list-group-item-action" href="#">${dataBarang[i][1]}</a>`
+        );
       }
     })
     .catch((err) => {
       console.log(err);
     });
+}
+ambilDb("")
+
+function simpanMasuk(){
+  ambilDb()
 }
