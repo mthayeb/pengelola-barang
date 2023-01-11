@@ -7,6 +7,7 @@ function cariBarang(idInput, idUl) {
   for (i = 0; i < ahref.length; i++) {
     // a = ;
     txtValue = ahref[i].textContent || ahref[i].innerText;
+    console.log(input.value)
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       ahref[i].style.display = "block";
     } 
