@@ -23,7 +23,7 @@ function cariBarang(idInput, idUl) {
   ahref.forEach((e, n) => {
     e.onclick = (d) => {
       input.value = ""
-      ($(d.target).text()).match()
+      ($(d.target).text()[0]).match("#")
       $("#kode_barang").val()
       $("#nama_barang").val($(d.target).text())
       for (i = 0; i < ahref.length; i++) {
