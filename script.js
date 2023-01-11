@@ -7,12 +7,21 @@ function cariBarang(idInput, idUl) {
   for (i = 0; i < ahref.length; i++) {
     // a = ;
     txtValue = ahref[i].textContent || ahref[i].innerText;
-    console.log(input.value)
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    // console.log(input.value)
+    
+    ahref[i].style.display = "none";
+    
+    if (txtValue.toUpperCase().search(filter) > -1) {
+      // console.log(txtValue)
       ahref[i].style.display = "block";
     } 
+    
     if (input.value == "") {
       ahref[i].style.display = "none";
     }
+  }
+  
+  ahref.map.onclick = (e)=>{
+    console.log(e.target)
   }
 }
