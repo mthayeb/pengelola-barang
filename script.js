@@ -2,8 +2,7 @@ function cariBarang(idInput, idUl) {
   var input, filter, ul, li, ahref, i, txtValue;
   input = document.getElementById(idInput);
   filter = input.value.toUpperCase();
-  ul = document.getElementById(idUl);
-  ahref = ul.getElementsByTagName("a");
+  ahref = document.getElementById(idUl).querySelectorAll("a");
   for (i = 0; i < ahref.length; i++) {
     // a = ;
     txtValue = ahref[i].textContent || ahref[i].innerText;
@@ -21,7 +20,9 @@ function cariBarang(idInput, idUl) {
     }
   }
   
-  ahref.map.onclick = (e)=>{
-    console.log(e.target)
-  }
+  ahref.forEach((e,n)=>{
+    e.onclick = (d)=>{
+      console.log(d.target)
+    }
+  })
 }
