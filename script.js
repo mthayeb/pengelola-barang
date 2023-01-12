@@ -25,7 +25,7 @@ function cariBarang(idInput, idUl) {
       input.value = ""
       
       $("#kode_barang").val($(d.target).children("span").text())
-      $("#nama_barang").val($(d.target).text())
+      $("#nama_barang").val($(d.target).html())
       for (i = 0; i < ahref.length; i++) {
         ahref[i].style.display = "none";
       }
