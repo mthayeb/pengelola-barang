@@ -23,8 +23,8 @@ function cariBarang(idInput, idUl) {
   ahref.forEach((e, n) => {
     e.onclick = (d) => {
       input.value = ""
-      // ($(d.target).text()[0]).match("#")
-      $("#kode_barang").val()
+      
+      $("#kode_barang").val($(d.target).children("span").text())
       $("#nama_barang").val($(d.target).text())
       for (i = 0; i < ahref.length; i++) {
         ahref[i].style.display = "none";
@@ -46,13 +46,12 @@ function ambilDb(perintah) {
       return res.json();
     })
     .then((dataBarang) => {
-      // console.log(dataBarang)
       for (let i = 2; i < dataBarang.length; i++) {
         //console.log(dataBarang[i][0]); //kode barang
         //console.log(dataBarang[i][1]); //nama barang
 
         $("#myUL").append(
-          `<a class="list-group-item list-group-item-action" href="#">${dataBarang[i][1]} <span class="d-none">${dataBarang[i][0]}</span></a>`
+          `<a class="list-group-item list-group-item-action" href="#">${dataBarang[i][1]} <span>${dataBarang[i][0]}</span></a>`
         );
       }
     })
@@ -60,6 +59,7 @@ function ambilDb(perintah) {
       console.log(err);
     });
 }
+
 ambilDb("ambil db")
 
 function simpanMasuk(){
