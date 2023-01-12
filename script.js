@@ -15,9 +15,9 @@ let templateBarangMasuk = (namaBarang, kodeBarang) => {
     </tr>`;
 };
 
-function hapusBaris(e){
- $(e).parents("tr").remove()
-  bikinNoUrut()
+function hapusBaris(e) {
+  $(e).parents("tr").remove();
+  bikinNoUrut();
 }
 
 function cariBarang(idInput, idUl) {
@@ -52,22 +52,23 @@ function cariBarang(idInput, idUl) {
       $("#list_barang_masuk").prepend(
         templateBarangMasuk(namaBarang, $(d.target).children("span").text())
       );
+
       for (i = 0; i < ahref.length; i++) {
         ahref[i].style.display = "none";
       }
-      
-      bikinNoUrut()
+
+      bikinNoUrut();
     };
   });
 }
 
-function bikinNoUrut(){
+function bikinNoUrut() {
   let panjangList = $("#list_barang_masuk").children().length;
-      for (let i = 0; i < panjangList; i++) {
-        $("#list_barang_masuk th")
-          .eq(i)
-          .html(i + 1);
-      }
+  for (let i = 0; i < panjangList; i++) {
+    $("#list_barang_masuk th")
+      .eq(i)
+      .html(i + 1);
+  }
 }
 
 function ambilDb(perintah) {
@@ -96,11 +97,13 @@ function ambilDb(perintah) {
 ambilDb("ambil db");
 
 function simpanMasuk() {
-  if($("#tanggal_masuk").val() == ''){
-    $("#list_barang_masuk").children().length == 0){
-    alert("tanggal masuk tidak boleh kosong")
-    $("#tanggal_masuk").focus()
+  if ($("#tanggal_masuk").val() == "") {
+    alert("tanggal masuk tidak boleh kosong");
+    $("#tanggal_masuk").focus();
+  } else if ($("#list_barang_masuk").children().length == 0) {
+    alert("barang masuk tidak boleh kosong");
+    $("#myInput").focus();
+  } else {
+    ambilDb("simpan masuk");
   }
-  
-  ambilDb("simpan masuk");
 }
