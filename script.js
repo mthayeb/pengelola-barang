@@ -83,9 +83,6 @@ function ambilDb(perintah) {
     })
     .then((dataBarang) => {
       for (let i = 2; i < dataBarang.length; i++) {
-        //console.log(dataBarang[i][0]); //kode barang
-        //console.log(dataBarang[i][1]); //nama barang
-
         $("#myUL").append(
           `<a class="list-group-item list-group-item-action" href="#">${dataBarang[i][1]} <span>${dataBarang[i][0]}</span></a>`
         );
@@ -99,5 +96,11 @@ function ambilDb(perintah) {
 ambilDb("ambil db");
 
 function simpanMasuk() {
+  if($("#tanggal_masuk").val() == ''){
+    $("#list_barang_masuk").children().length == 0){
+    alert("tanggal masuk tidak boleh kosong")
+    $("#tanggal_masuk").focus()
+  }
+  
   ambilDb("simpan masuk");
 }
