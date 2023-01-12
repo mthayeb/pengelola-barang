@@ -71,12 +71,12 @@ function bikinNoUrut() {
   }
 }
 
-function ambilDb(perintah) {
+function ambilDb(perintah, isidata) {
   fetch(
     "https://script.google.com/macros/s/AKfycbyRZXiLsIsTh0LzFk9z95tbHGArb3Ht03rLW_GgIv3F1kQmOlxkLjvNVPjcb3hjgh3NAg/exec",
     {
       method: "post",
-      body: JSON.stringify({ perintah: perintah }),
+      body: JSON.stringify({ perintah: perintah, isidata: isidata }),
     }
   )
     .then((res) => {
@@ -104,13 +104,17 @@ function simpanMasuk() {
     alert("barang masuk tidak boleh kosong");
     $("#myInput").focus();
   } else {
-    for(let i = 0;i < $("#list_barang_masuk").length;i++{
-        $("#list_barang_masuk tr").eq(i).children().eq(2).text() //ambil kode barang
-        $("#list_barang_masuk tr").eq(i).children().eq(1).text() //ambil nama barang
-        $(`#list_barang_masuk tr:eq(${i}) input`).eq(0).val() //ambil jumlah
-        $(`"#list_barang_masuk tr:eq(${i}) input`).eq(1).val() //ambil satuan
+    let tglMasuk = $("#tanggal_masuk").val()
+    let kdbr = null, nmbr = null, jml = null, sat = null, arr = []
+    for(let i = 0;i < $("#list_barang_masuk").length;i++){
+        kdbr = $("#list_barang_masuk tr").eq(i).children().eq(2).text() //ambil kode barang
+        nmbr = $("#list_barang_masuk tr").eq(i).children().eq(1).text() //ambil nama barang
+        jml = $(`#list_barang_masuk tr:eq(${i}) input`).eq(0).val() //ambil jumlah ERROR BACKTICK
+        sat = $(`"#list_barang_masuk tr:eq(${i}) input`).eq(1).val() //ambil satuan ERROR BACKTICK
+      arr.push(tglMasuk)
+      arr.push({"kode barang": kdbr, "nama barang": nmbr, "jumlah" : jml, "satuan": sat})
     }
       
-    ambilDb("simpan masuk");
+    ambilDb("simpan masuk", arr);
   }
 }
