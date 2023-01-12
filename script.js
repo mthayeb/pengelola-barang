@@ -22,51 +22,32 @@ function cariBarang(idInput, idUl) {
 
   ahref.forEach((e, n) => {
     e.onclick = (d) => {
-      input.value = ""
-      
-      let templateBarangMasuk = (namaBarang, kodeBarang) => {return `
-      
-      
-      <div class="input-group">
-          <input
-            type="text"
-            aria-label="Nama barang"
-            class="form-control w-50"
-          readonly
-          value=${namaBarang}
-                 />
-          <input
-            type="text"
-            aria-label="Kode barang"
-            class="form-control"
-          readonly
-          value=${kodeBarang}
-                 />
-          <input
-            type="text"
-            aria-label="Satuan"
-            class="form-control"
-          />
-          <span class="btn btn-warning">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-trash-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"
-              />
-            </svg>
-          </span>
-        </div>`}
-      
-      let posisispan = ($(d.target).html()).search(" <span")
-      let namaBarang = ($(d.target).html()).substring(0, posisispan)
-      
-      $("#list_barang_masuk").prepend(templateBarangMasuk(namaBarang,$(d.target).children("span").text()))
+      input.value = "";
+
+      let templateBarangMasuk = (namaBarang, kodeBarang) => {
+        return `
+
+  <li class="list-group-item">${namaBarang}</li>
+  <li class="list-group-item">${kodeBarang}</li>
+  <li class="list-group-item"><input type="text" aria-label="Satuan" class="form-control"/></li>
+  <li class="list-group-item">
+  <span class="btn btn-warning">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+      <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+    </svg>
+  </li>
+  
+  
+  
+  `;
+      };
+
+      let posisispan = $(d.target).html().search(" <span");
+      let namaBarang = $(d.target).html().substring(0, posisispan);
+
+      $("#list_barang_masuk").prepend(
+        templateBarangMasuk(namaBarang, $(d.target).children("span").text())
+      );
 
       for (i = 0; i < ahref.length; i++) {
         ahref[i].style.display = "none";
@@ -102,8 +83,8 @@ function ambilDb(perintah) {
     });
 }
 
-ambilDb("ambil db")
+ambilDb("ambil db");
 
-function simpanMasuk(){
-  ambilDb("simpan masuk")
+function simpanMasuk() {
+  ambilDb("simpan masuk");
 }
