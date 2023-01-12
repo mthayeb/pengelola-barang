@@ -16,52 +16,43 @@
     <div class="container">
       <h1>KELOLA BARANG</h1>
       <div class="input-group mb-3">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default"
-            >Tanggal Pesan</span
-          >
-          <input
-            type="date"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </div>
         <span class="input-group-text" id="inputGroup-sizing-default"
-          >Nama Barang</span
+          >Tanggal Pesan</span
         >
         <input
-          id="myInput"
-          onkeyup="cariBarang('myInput', 'myUL')"
-          type="text"
+          type="date"
           class="form-control"
+          aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-default"
         />
-      </div>
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Nama Barang</span
+      >
+      <input
+        id="myInput"
+        onkeyup="cariBarang('myInput', 'myUL')"
+        type="text"
+        class="form-control"
+        aria-describedby="inputGroup-sizing-default"
+      />
+    </div>
 
-      <ul class="list-group" id="myUL"></ul>
-      <div class="border p-3 mt-3">
-        <div class="mb-3">
-          <label for="kode_barang" class="form-label">Kode Barang</label>
-          <input
-            class="form-control"
-            type="text"
-            aria-label="readonly input example"
-            id="kode_barang"
-            readonly
-          />
-        </div>
-        <div class="mb-3">
-          <label for="nama_barang" class="form-label">Nama Barang</label>
-          <input
-            class="form-control"
-            type="text"
-            aria-label="readonly input example"
-            id="nama_barang"
-            readonly
-          />
-        </div>
-        <button class="btn btn-primary" onclick="simpanMasuk()">Simpan</button>
+    <ul class="list-group" id="myUL"></ul>
+    <div class="border p-3 mt-3">
+      <span class="input-group-text">Nama/kode barang</span>
+      <input
+        id="nama_barang"
+        type="text"
+        aria-label="Nama barang"
+        class="form-control"
+      />
+      <input
+        id="kode_barang"
+        type="text"
+        aria-label="Kode barang"
+        class="form-control"
+      />
+      <button class="btn btn-primary" onclick="simpanMasuk()">Simpan</button>
       </div>
     </div>
     <script
