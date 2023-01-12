@@ -26,10 +26,11 @@ function cariBarang(idInput, idUl) {
 
       let templateBarangMasuk = (namaBarang, kodeBarang) => {
         let panjangList = $(list_barang_masuk).children().length
+        $("#list_barang_masuk th").html("")
         
-        let noUrut = 
+        let noUrut = $("#list_barang_masuk th").eq().html("")
         
-            return `
+  return `
     <tr>
       <th scope="row">${noUrut}</th>
       <td>${namaBarang}</td>
