@@ -24,26 +24,28 @@ function cariBarang(idInput, idUl) {
     e.onclick = (d) => {
       input.value = ""
       
-      let templatelistba`<div class="input-group">
+      let templateBarangMasuk = (namaBarang, kodeBarang) => {return `
+      
+      
+      <div class="input-group">
           <input
-            id="nama_barang"
             type="text"
             aria-label="Nama barang"
             class="form-control w-50"
           readonly
+          value=${namaBarang}
                  />
           <input
-            id="kode_barang"
             type="text"
             aria-label="Kode barang"
             class="form-control"
           readonly
+          value=${kodeBarang}
                  />
           <input
             type="text"
             aria-label="Satuan"
             class="form-control"
-            readonly
           />
           <span class="btn btn-warning">
             <svg
@@ -59,13 +61,13 @@ function cariBarang(idInput, idUl) {
               />
             </svg>
           </span>
-        </div>`
+        </div>`}
       
-      $("#kode_barang").val($(d.target).children("span").text())
-      $("#list_barang_masuk").prepend()
       let posisispan = ($(d.target).html()).search(" <span")
       let namaBarang = ($(d.target).html()).substring(0, posisispan)
-      $("#nama_barang").val(namaBarang)
+      
+      $("#list_barang_masuk").prepend(templateBarangMasuk(namaBarang,$(d.target).children("span").text()))
+
       for (i = 0; i < ahref.length; i++) {
         ahref[i].style.display = "none";
       }
