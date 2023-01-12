@@ -15,44 +15,47 @@
   <body>
     <div class="container">
       <h1>KELOLA BARANG</h1>
+      <label for="tanggal_masuk" class="form-label">Tanggal Pesan</label>
       <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default"
-          >Tanggal Pesan</span
-        >
         <input
+          id="tanggal_masuk"
           type="date"
           class="form-control"
           aria-label="Sizing example input"
           aria-describedby="inputGroup-sizing-default"
         />
-      <span class="input-group-text" id="inputGroup-sizing-default"
-        >Nama Barang</span
-      >
-      <input
-        id="myInput"
-        onkeyup="cariBarang('myInput', 'myUL')"
-        type="text"
-        class="form-control"
-        aria-describedby="inputGroup-sizing-default"
-      />
-    </div>
+      </div>
+      <label for="myInput" class="form-label">Nama Barang</label>
+      <div class="input-group mb-3">
+        <input
+          id="myInput"
+          onkeyup="cariBarang('myInput', 'myUL')"
+          type="text"
+          class="form-control"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <ul class="list-group" id="myUL"></ul>
 
-    <ul class="list-group" id="myUL"></ul>
-    <div class="border p-3 mt-3">
-      <span class="input-group-text">Nama/kode barang</span>
-      <input
-        id="nama_barang"
-        type="text"
-        aria-label="Nama barang"
-        class="form-control"
-      />
-      <input
-        id="kode_barang"
-        type="text"
-        aria-label="Kode barang"
-        class="form-control"
-      />
-      <button class="btn btn-primary" onclick="simpanMasuk()">Simpan</button>
+      <div class="border p-3">
+        <label for="nama_barang" class="form-label">Nama barang</label>
+        <div class="input-group">
+          <input
+            id="nama_barang"
+            type="text"
+            aria-label="Nama barang"
+            class="form-control"
+          />
+          <input
+            id="kode_barang"
+            type="text"
+            aria-label="Kode barang"
+            class="form-control"
+          />
+          <button class="btn btn-primary" onclick="simpanMasuk()">
+            Simpan
+          </button>
+        </div>
       </div>
     </div>
     <script
