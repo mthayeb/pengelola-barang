@@ -16,7 +16,8 @@ let templateBarangMasuk = (namaBarang, kodeBarang) => {
 };
 
 function hapusBaris(e){
-  $(e.target).parents()
+ $(e).parents("tr").remove()
+  bikinNoUrut()
 }
 
 function cariBarang(idInput, idUl) {
