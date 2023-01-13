@@ -109,8 +109,10 @@ function simpanMasuk(e) {
     $("#myInput").focus();
   } else {
     let tglMasuk = $("#tanggal_masuk").val()
-    let kdbr = null, nmbr = null, jml = null, sat = null, arr = []
-      arr.push({"tanggal masuk":tglMasuk, "data masuk" : []})
+    let kdbr = null, nmbr = null, jml = null, sat = null, arr = {}
+    arr["tanggal masuk"] = tglMasuk
+    arr["data masuk"] = []
+
     for(let i = 0;i < $("#list_barang_masuk").length;i++){
         kdbr = $("#list_barang_masuk tr").eq(i).children().eq(2).text() //ambil kode barang
         nmbr = $("#list_barang_masuk tr").eq(i).children().eq(1).text() //ambil nama barang
