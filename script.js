@@ -19,11 +19,10 @@ let templateBarangMasuk = (namaBarang, kodeBarang) => {
 
 function hitungTotal(e){
   let td = $(e).parents("tr").children()
-  let inpjml = $(td).eq(3).children("input")
-  let inpharga = $(td).eq(5).children("input")
-  
-  console.log(inpjml)
-  // let hasil = inp[2].value * inp[4].value
+  let inpjml = $(td).eq(3).children("input").val()
+  let inpharga = $(td).eq(5).children("input").val()
+  $(td).eq(6).children("input").val(inpjml * inpharga)
+
   // inp[5].value = hasil 
 }
 
