@@ -4,9 +4,9 @@ let templateBarangMasuk = (namaBarang, kodeBarang) => {
       <th scope="row"></th>
       <td>${namaBarang}</td>
       <td>${kodeBarang}</td>
-      <td><input required type="text" class="form-control" placeholder="Jumlah" aria-label="Jumlah"></input></td>
+      <td><input value=0 onkeyup="hitungTotal(this)" required type="input" class="form-control" placeholder="Jumlah" aria-label="Jumlah"></input></td>
       <td><input required type="text" class="form-control" placeholder="Satuan" aria-label="Satuan"></input></td>
-      <td><input onkeyup="hitungTotal(this)" required type="number" class="form-control" placeholder="Harga" aria-label="Harga"></input></td>
+      <td><input value=0 onkeyup="hitungTotal(this)" required type="number" class="form-control" placeholder="Harga" aria-label="Harga"></input></td>
       <td><input type="number" class="form-control" placeholder="Total" aria-label="Total" readonly></input></td>
       <td><span class="btn btn-warning" onclick="hapusBaris(this)">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -20,7 +20,7 @@ let templateBarangMasuk = (namaBarang, kodeBarang) => {
 function hitungTotal(e){
   let inp = $(e).parents().find("input")
   let hasil = inp[2].value * inp[4].value
-  console.log(hasil)
+  inp[5].value = hasil
 }
 
 function hapusBaris(e) {
