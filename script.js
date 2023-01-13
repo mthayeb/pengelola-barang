@@ -109,8 +109,9 @@ function simpanMasuk() {
     for(let i = 0;i < $("#list_barang_masuk").length;i++){
         kdbr = $("#list_barang_masuk tr").eq(i).children().eq(2).text() //ambil kode barang
         nmbr = $("#list_barang_masuk tr").eq(i).children().eq(1).text() //ambil nama barang
-        jml = $(`#list_barang_masuk tr:eq(${i}) input`).eq(0).val() //ambil jumlah ERROR BACKTICK
-        sat = $(`"#list_barang_masuk tr:eq(${i}) input`).eq(1).val() //ambil satuan ERROR BACKTICK
+      
+        jml = $("#list_barang_masuk tr").eq(0).find("input").eq(0).val() //ambil jumlah ERROR BACKTICK
+        sat = $("#list_barang_masuk tr").eq(0).find("input").eq(1).val() //ambil satuan ERROR BACKTICK
       arr.push(tglMasuk)
       arr.push({"kode barang": kdbr, "nama barang": nmbr, "jumlah" : jml, "satuan": sat})
     }
