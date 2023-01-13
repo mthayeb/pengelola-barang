@@ -6,7 +6,7 @@ let templateBarangMasuk = (namaBarang, kodeBarang) => {
       <td>${kodeBarang}</td>
       <td><input required type="text" class="form-control" placeholder="Jumlah" aria-label="Jumlah"></input></td>
       <td><input required type="text" class="form-control" placeholder="Satuan" aria-label="Satuan"></input></td>
-      <td><input required type="number" class="form-control" placeholder="Harga" aria-label="Harga"></input></td>
+      <td><input onkeyup="hitungTotal(this)" required type="number" class="form-control" placeholder="Harga" aria-label="Harga"></input></td>
       <td><input type="number" class="form-control" placeholder="Total" aria-label="Total" readonly></input></td>
       <td><span class="btn btn-warning" onclick="hapusBaris(this)">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -16,6 +16,11 @@ let templateBarangMasuk = (namaBarang, kodeBarang) => {
       </td>
     </tr>`;
 };
+
+function hitungTotal(e){
+  $(e).parents
+  $(e).val()
+}
 
 function hapusBaris(e) {
   $(e).parents("tr").remove();
@@ -111,7 +116,7 @@ function simpanMasuk(e) {
     $("#myInput").focus();
   } else {
     let tglMasuk = $("#tanggal_masuk").val()
-    let kdbr = null, nmbr = null, jml = null, sat = null, arr = {}
+    let kdbr = null, nmbr = null, jml = null, sat = null, hrg = null, ttl = null, arr = {}
     arr["tanggal masuk"] = tglMasuk
     arr["data masuk"] = []
 
@@ -122,10 +127,10 @@ function simpanMasuk(e) {
         jml = $("#list_barang_masuk tr").eq(i).find("input").eq(0).val() //ambil jumlah
         sat = $("#list_barang_masuk tr").eq(i).find("input").eq(1).val() //ambil satuan
       
-      hrg = $("#list_barang_masuk tr").eq(i).find("input").eq(2).val() //ambil harga
-        sat = $("#list_barang_masuk tr").eq(i).find("input").eq(3).val() //ambil total
+        hrg = $("#list_barang_masuk tr").eq(i).find("input").eq(2).val() //ambil harga
+        ttl = $("#list_barang_masuk tr").eq(i).find("input").eq(3).val() //ambil total
 
-      arr["data masuk"].push({"kode barang": kdbr, "nama barang": nmbr, "jumlah" : jml, "satuan": sat})
+      arr["data masuk"].push({"kode barang": kdbr, "nama barang": nmbr, "jumlah" : jml, "satuan": sat, "harga": hrg, "total": ttl})
     }
       
     ambilDb("simpan masuk", arr);
