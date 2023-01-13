@@ -18,7 +18,8 @@ let templateBarangMasuk = (namaBarang, kodeBarang) => {
 };
 
 function hitungTotal(e){
-  let inp = $(e).parentsUntil("tr")
+  let inp = $(e).parents("tr").children()
+  
   console.log(inp)
   // let hasil = inp[2].value * inp[4].value
   // inp[5].value = hasil 
