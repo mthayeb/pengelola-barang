@@ -20,7 +20,7 @@ let templateBarangMasuk = (namaBarang, kodeBarang) => {
 function hitungTotal(e){
   let inp = $(e).parents().find("input")
   let hasil = inp[2].value * inp[4].value
-  inp[5].value = hasil
+  inp[5].value = hasil 
 }
 
 function hapusBaris(e) {
@@ -121,7 +121,7 @@ function simpanMasuk(e) {
     arr["tanggal masuk"] = tglMasuk
     arr["data masuk"] = []
 
-    for(let i = 0;i < $("#list_barang_masuk").length;i++){
+    for(let i = 0;i <= $("#list_barang_masuk").length;i++){
         kdbr = $("#list_barang_masuk tr").eq(i).children().eq(2).text() //ambil kode barang
         nmbr = $("#list_barang_masuk tr").eq(i).children().eq(1).text() //ambil nama barang
       
