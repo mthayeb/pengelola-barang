@@ -6,6 +6,8 @@ let templateBarangMasuk = (namaBarang, kodeBarang) => {
       <td>${kodeBarang}</td>
       <td><input required type="text" class="form-control" placeholder="Jumlah" aria-label="Jumlah"></input></td>
       <td><input required type="text" class="form-control" placeholder="Satuan" aria-label="Satuan"></input></td>
+      <td><input required type="number" class="form-control" placeholder="Harga" aria-label="Harga"></input></td>
+      <td><input type="number" class="form-control" placeholder="Total" aria-label="Total" readonly></input></td>
       <td><span class="btn btn-warning" onclick="hapusBaris(this)">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
           <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
@@ -117,8 +119,11 @@ function simpanMasuk(e) {
         kdbr = $("#list_barang_masuk tr").eq(i).children().eq(2).text() //ambil kode barang
         nmbr = $("#list_barang_masuk tr").eq(i).children().eq(1).text() //ambil nama barang
       
-        jml = $("#list_barang_masuk tr").eq(0).find("input").eq(0).val() //ambil jumlah ERROR BACKTICK
-        sat = $("#list_barang_masuk tr").eq(0).find("input").eq(1).val() //ambil satuan ERROR BACKTICK
+        jml = $("#list_barang_masuk tr").eq(i).find("input").eq(0).val() //ambil jumlah
+        sat = $("#list_barang_masuk tr").eq(i).find("input").eq(1).val() //ambil satuan
+      
+      hrg = $("#list_barang_masuk tr").eq(i).find("input").eq(2).val() //ambil harga
+        sat = $("#list_barang_masuk tr").eq(i).find("input").eq(3).val() //ambil total
 
       arr["data masuk"].push({"kode barang": kdbr, "nama barang": nmbr, "jumlah" : jml, "satuan": sat})
     }
