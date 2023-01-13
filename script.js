@@ -96,7 +96,11 @@ function ambilDb(perintah, isidata) {
 
 ambilDb("ambil db");
 
-function simpanMasuk() {
+$("#kirim_masuk").submit(simpanMasuk)
+
+function simpanMasuk(e) {
+  e.preventDefault()
+  
   if ($("#tanggal_masuk").val() == "") {
     alert("tanggal masuk tidak boleh kosong");
     $("#tanggal_masuk").focus();
@@ -106,14 +110,15 @@ function simpanMasuk() {
   } else {
     let tglMasuk = $("#tanggal_masuk").val()
     let kdbr = null, nmbr = null, jml = null, sat = null, arr = []
+      arr.push({"tanggal masuk":tglMasuk, "data masuk" : []})
     for(let i = 0;i < $("#list_barang_masuk").length;i++){
         kdbr = $("#list_barang_masuk tr").eq(i).children().eq(2).text() //ambil kode barang
         nmbr = $("#list_barang_masuk tr").eq(i).children().eq(1).text() //ambil nama barang
       
         jml = $("#list_barang_masuk tr").eq(0).find("input").eq(0).val() //ambil jumlah ERROR BACKTICK
         sat = $("#list_barang_masuk tr").eq(0).find("input").eq(1).val() //ambil satuan ERROR BACKTICK
-      arr.push(tglMasuk)
-      arr.push({"kode barang": kdbr, "nama barang": nmbr, "jumlah" : jml, "satuan": sat})
+
+      arr["data masuk"].push({"kode barang": kdbr, "nama barang": nmbr, "jumlah" : jml, "satuan": sat})
     }
       
     ambilDb("simpan masuk", arr);
