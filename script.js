@@ -124,7 +124,7 @@ function simpanMasuk(e) {
     arr["tanggal masuk"] = tglMasuk
     arr["data masuk"] = []
 
-    for(let i = 0;i <= $("#list_barang_masuk").length;i++){
+    for(let i = 0;i < $("#list_barang_masuk tr").length;i++){
         kdbr = $("#list_barang_masuk tr").eq(i).children().eq(2).text() //ambil kode barang
         nmbr = $("#list_barang_masuk tr").eq(i).children().eq(1).text() //ambil nama barang
       
